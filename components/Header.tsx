@@ -24,7 +24,7 @@ export default function Header({ darkMode, setDarkMode }: HeaderProps) {
           whileTap={{ scale: 0.95 }}
         >
           <Link href="/" className="text-2xl font-bold text-neutral-900 dark:text-neutral-300">
-            ekiliFlow
+            Axirz
           </Link>
         </motion.div>
         <nav className="flex items-center space-x-6">

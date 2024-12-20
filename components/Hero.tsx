@@ -33,7 +33,7 @@ export default function Hero() {
           className="text-center"
         >
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-300 dark:to-red-500">
-            Welcome to <span className="text-neutral-700 dark:text-neutral-300">ekiliFlow</span>
+            Welcome to <span className="text-neutral-700 dark:text-neutral-300">Axirz</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-neutral-700 dark:text-neutral-400">
             Streamline Your Business with Our Powerful ERP Solution

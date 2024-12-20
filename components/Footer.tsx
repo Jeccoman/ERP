@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-primary dark:text-primary-dark">ekiliFlow</h3>
+            <h3 className="text-2xl font-bold mb-4 text-primary dark:text-primary-dark">axirz</h3>
             <p className="text-neutral-400">
               Empowering businesses with cutting-edge ERP solutions.
             </p>
@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-neutral-800 text-center">
           <p className="text-neutral-400">
-            © {new Date().getFullYear()} ekiliFlow. All rights reserved.
+            © {new Date().getFullYear()} Axirz. All rights reserved.
           </p>
         </div>
       </div>

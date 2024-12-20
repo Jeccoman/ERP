@@ -6,19 +6,19 @@ const testimonials = [
   {
     name: 'Alice Johnson',
     role: 'CEO, TechCorp',
-    content: 'ekiliFlow has revolutionized our business processes. It\'s an indispensable tool for our company.',
+    content: 'Axirz has revolutionized our business processes. It\'s an indispensable tool for our company.',
     avatar: '/placeholder.svg',
   },
   {
     name: 'Bob Smith',
     role: 'CFO, InnovateCo',
-    content: 'The financial insights provided by ekiliFlow have been game-changing for our decision-making process.',
+    content: 'The financial insights provided by axirz have been game-changing for our decision-making process.',
     avatar: '/placeholder.svg',
   },
   {
     name: 'Carol Davis',
     role: 'Operations Manager, GlobalTech',
-    content: 'ekiliFlow\'s customizable workflows have significantly improved our operational efficiency.',
+    content: 'Axirz\'s customizable workflows have significantly improved our operational efficiency.',
     avatar: '/placeholder.svg',
   },
 ]
