@@ -16,31 +16,31 @@ const geistMono = localFont({
 
 // Metadata configuration
 export const metadata: Metadata = {
-  title: "ekiliFlow",
+  title: "AxirzERP",
   description: "The enterprise standard ERP for seamless office and resource management.",
-  keywords: ["ERP", "enterprise software", "business management", "ekiliFlow"],
-  authors: [{ name: "Tachera Sasi", url: "https://flow.ekilie.com" }],
+  keywords: ["ERP", "enterprise software", "business management", "axirz"],
+  authors: [{ name: "axirz Group ", url: "https://axirz.com" }],
   openGraph: {
-    title: "ekiliFlow - Enterprise ERP",
+    title: "Axirz - Enterprise ERP",
     description:
-      "Optimize your office and business operations with ekiliFlow, the leading enterprise ERP solution.",
-    url: "https://ekilie.com/ekiliflow",
-    siteName: "ekiliFlow",
+      "Optimize your office and business operations with axirz, the leading enterprise ERP solution.",
+    url: "https://axirz.com",
+    siteName: "aXirz",
     type: "website",
     images: [
       {
-        url: "https://ekilie.com/images/ekiliflow-preview.png",//will change this later and put a real image
+        url: "https://axirz.com/images/.png",//will change this later and put a real image
         width: 1200,
         height: 630,
-        alt: "ekiliFlow ERP Preview",
+        alt: "axirz ERP Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ekiliFlow - Enterprise ERP",
+    title: "Axirz - Enterprise ERP",
     description:
-      "Simplify your business operations with ekiliFlow. The enterprise ERP designed for growth.",
+      "Simplify your business operations with Axirz. The enterprise ERP designed for growth.",
     images: ["https://ekilie.com/images/ekiliflow-preview.png"],//will change this later and put a real image
   },
   viewport: "width=device-width, initial-scale=1.0",
@@ -59,7 +59,7 @@ export default function RootLayout({
           href="https://ekilie.com/favicon.ico"
           type="image/x-icon"
         />
-        <link rel="canonical" href="https://ekilie.com/ekiliflow" />
+        <link rel="canonical" href="https://axirz.com" />
         <meta name="robots" content="index, follow" />
       </head>
       <body

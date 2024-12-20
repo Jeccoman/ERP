@@ -29,7 +29,7 @@ export default function LoginPage() {
     >
       <Card className="w-full max-w-md bg-white dark:bg-neutral-800 shadow-lg">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-neutral-900 dark:text-white">Login to ekiliFlow</CardTitle>
+          <CardTitle className="text-xl font-semibold text-neutral-900 dark:text-white">Login to axirz</CardTitle>
           <CardDescription className="text-sm text-neutral-700 dark:text-neutral-400">
             Enter your credentials to access your account
           </CardDescription>
@@ -64,7 +64,7 @@ export default function LoginPage() {
         </CardContent>
         <CardFooter className="flex justify-between">
           <Link href="/auth/register" className="text-sm text-primary hover:underline dark:text-neutral-300">
-            Don't have an account? Sign up
+            Don&apos;t have an account? Sign up
           </Link>
           <Link href="/auth/reset-password" className="text-sm text-primary hover:underline dark:text-neutral-300">
             Forgot password?

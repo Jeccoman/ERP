@@ -30,7 +30,7 @@ export default function RegisterPage() {
       <Card className="w-full max-w-md bg-white dark:bg-neutral-800 shadow-lg">
         <CardHeader>
           <CardTitle>Create an Account</CardTitle>
-          <CardDescription>Sign up for ekiliFlow to get started</CardDescription>
+          <CardDescription>Sign up for Axirz to get started</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
