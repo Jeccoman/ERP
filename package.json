@@ -38,6 +38,7 @@
         "react-hook-form": "^7.53.2",
         "react-particles": "^2.12.2",
         "recharts": "^2.14.1",
+        "socket.io-client": "^4.8.1",
         "tailwind-merge": "^2.5.5",
         "tailwindcss-animate": "^1.0.7",
         "tsparticles": "^3.7.1",
