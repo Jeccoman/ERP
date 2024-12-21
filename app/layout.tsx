@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Simplify your business operations with Axirz. The enterprise ERP designed for growth.",
     images: ["https://ekilie.com/images/ekiliflow-preview.png"],//will change this later and put a real image
   },
-  viewport: "width=device-width, initial-scale=1.0",
+  // viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
