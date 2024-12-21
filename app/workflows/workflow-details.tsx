@@ -50,6 +50,12 @@ interface WorkflowDetailsProps {
 export function WorkflowDetails({ workflowId, details: initialDetails }: WorkflowDetailsProps) {
   const [details, setDetails] = useState(initialDetails)
   const [editingStep, setEditingStep] = useState<WorkflowStep | null>(null)
+  const [isAddingStep, setIsAddingStep] = useState(false)
+  const [newStep, setNewStep] = useState<Partial<WorkflowStep>>({
+    workflowId: workflowId,
+    status: 'ACTIVE',
+    action: 'APPROVE'
+  })
 
   const handleDeleteStep = (stepId: string) => {
     setDetails(prev => ({
@@ -64,6 +70,31 @@ export function WorkflowDetails({ workflowId, details: initialDetails }: Workflo
       steps: prev.steps.map(s => s.id === step.id ? step : s)
     }))
     setEditingStep(null)
+  }
+
+  const handleAddStep = () => {
+    const newId = (Math.max(...details.steps.map(s => parseInt(s.id))) + 1).toString()
+    const newWorkflowStep: WorkflowStep = {
+      id: newId,
+      workflowId: workflowId,
+      workflowOrder: details.steps.length,
+      status: newStep.status as 'ACTIVE' | 'INACTIVE',
+      userGroup: newStep.userGroup || '',
+      userGroupKeyword: newStep.userGroupKeyword || '',
+      alternativeName: newStep.alternativeName || '',
+      description: newStep.description || '',
+      action: newStep.action as 'CREATE' | 'VERIFY' | 'AUTHORIZE' | 'APPROVE'
+    }
+    setDetails(prev => ({
+      ...prev,
+      steps: [...prev.steps, newWorkflowStep]
+    }))
+    setIsAddingStep(false)
+    setNewStep({
+      workflowId: workflowId,
+      status: 'ACTIVE',
+      action: 'APPROVE'
+    })
   }
 
   return (
@@ -81,10 +112,91 @@ export function WorkflowDetails({ workflowId, details: initialDetails }: Workflo
         {/* Previous form fields remain unchanged */}
         
         <div className="flex items-center justify-between mb-4">
-          <Button className="bg-emerald-500 hover:bg-emerald-600">
-            <Plus className="w-4 h-4 mr-2" />
-            Add
-          </Button>
+          <Dialog open={isAddingStep} onOpenChange={setIsAddingStep}>
+            <DialogTrigger asChild>
+              <Button className="bg-emerald-500 hover:bg-emerald-600">
+                <Plus className="w-4 h-4 mr-2" />
+                Add
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Add New Workflow Step</DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Status</label>
+                  <Select
+                    value={newStep.status}
+                    onValueChange={(value) => setNewStep({...newStep, status: value as 'ACTIVE' | 'INACTIVE'})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="ACTIVE">ACTIVE</SelectItem>
+                      <SelectItem value="INACTIVE">INACTIVE</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">User Group</label>
+                  <Select
+                    value={newStep.userGroupKeyword}
+                    onValueChange={(value) => {
+                      const groups: Record<string, string> = {
+                        'FA': 'Project Accountant',
+                        'FM': 'Finance Manager',
+                        'CEO': 'Chief Executive Officer'
+                      }
+                      setNewStep({
+                        ...newStep,
+                        userGroupKeyword: value,
+                        userGroup: groups[value] || ''
+                      })
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="FA">Project Accountant (FA)</SelectItem>
+                      <SelectItem value="FM">Finance Manager (FM)</SelectItem>
+                      <SelectItem value="CEO">Chief Executive Officer (CEO)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Action</label>
+                  <Select
+                    value={newStep.action}
+                    onValueChange={(value) => setNewStep({...newStep, action: value as 'CREATE' | 'VERIFY' | 'AUTHORIZE' | 'APPROVE'})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="CREATE">CREATE</SelectItem>
+                      <SelectItem value="VERIFY">VERIFY</SelectItem>
+                      <SelectItem value="AUTHORIZE">AUTHORIZE</SelectItem>
+                      <SelectItem value="APPROVE">APPROVE</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Description</label>
+                  <Textarea
+                    value={newStep.description || ''}
+                    onChange={(e) => setNewStep({...newStep, description: e.target.value})}
+                  />
+                </div>
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setIsAddingStep(false)}>Cancel</Button>
+                <Button onClick={handleAddStep}>Add Step</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
           <div className="flex gap-2">
             <Button variant="outline">
               <Printer className="w-4 h-4 mr-2" />
